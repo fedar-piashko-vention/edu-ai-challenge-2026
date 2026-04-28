@@ -66,7 +66,23 @@ Optional: `VITE_BASE` in `.env.production` — see [`.env.example`](.env.example
 | [`.github/workflows/task-1-ci.yml`](../.github/workflows/task-1-ci.yml) | `npm ci` + `npm run build` on changes under `task-1/`. |
 | [`.github/workflows/task-1-deploy-pages.yml`](../.github/workflows/task-1-deploy-pages.yml) | Build and deploy **`task-1/dist`** to **GitHub Pages** on push to **`main`** (and manual dispatch). |
 
-**Pages:** Repository **Settings → Pages → Source: GitHub Actions** (after workflows exist).
+**Pages:** You must turn Pages on **once** before deploy will succeed (see below).
+
+### Fix: deploy fails with `404` / “Creating Pages deployment failed”
+
+That response almost always means **GitHub Pages is not enabled** for this repository (the API returns “Not Found” until Pages exists).
+
+Do this **in order**:
+
+1. Open **`https://github.com/<owner>/<repo>/settings/pages`** (replace with your repo).
+2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”).
+3. Save if prompted. Wait a few seconds.
+4. Re-run the failed workflow: **Actions → Task 1 — Build and deploy → Re-run all jobs**, or push an empty commit to `main`.
+
+Also check:
+
+- **Private repo:** GitHub Free org/user accounts may need **GitHub Pro** (or make the repo **public**) for Pages from Actions — see [GitHub Pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
+- **Organization:** An org admin may need to allow **GitHub Pages** for the org or this repo.
 
 ### Submission — live URL
 
