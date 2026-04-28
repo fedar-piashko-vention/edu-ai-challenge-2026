@@ -1,15 +1,30 @@
 # Task 1 — Leaderboard (vibe coding)
 
-## Objective
+## Objective (challenge)
 
-Clone the company leaderboard experience as a standalone web app (no SharePoint chrome): filters, podium for top three, full ranked list with expandable XP activity tables, responsive desktop and mobile layouts. Deploy to **GitHub Pages** with synthetic data only — see [`report.md`](report.md).
+Recreate the internal company **leaderboard** experience: **all UI elements, filters, sorting, and functionality** from the reference, **no extra features**. **No real corporate data** in the app (names, titles, departments, photos). **Deploy to GitHub Pages** and include this repo’s **source code** plus **`report.md`**.
+
+**Scope:** Leaderboard web part only — **no** SharePoint / M365 shell (suite nav, waffle, site chrome).
+
+## What’s implemented
+
+| Area | Details |
+|------|---------|
+| **Layout** | Outer **darker** page background; **white inner shell** (`lb-inner-shell`) for filters, podium, and list. |
+| **Title** | **`Company Leader Board {year}`** above the shell; **`{year}`** = selected **Year** filter, or **current calendar year** when **All Years** is selected. |
+| **Filters** | **Desktop / tablet:** Year, Quarter, Category + search. **Mobile:** Team, Country, Region + search. All dimensions apply together. |
+| **Sorting / rank** | Leaders sorted by **total XP descending** after filters; podium = top 3 of that list. |
+| **Podium** | Desktop: 2nd–1st–3rd; mobile: stacked. Flat solid stands, flat bottom. |
+| **List** | Row with rank, avatar, stats (non-zero buckets only), total, expand. Expanded: **Recent activity** table (Activity, Category, Date, Points). |
+| **Data** | Fully **mock / synthetic** — [`src/data/mockEmployees.ts`](src/data/mockEmployees.ts). |
+| **CI / Pages** | Build + deploy via GitHub Actions (see below). |
 
 ## Stack
 
-- Node.js **24** (see [`.nvmrc`](.nvmrc))
+- Node.js **24** — [`.nvmrc`](.nvmrc)
 - React 19 + TypeScript + Vite 7
 - React Bootstrap + Bootstrap 5
-- Font Awesome (React)
+- Font Awesome (`@fortawesome/react-fontawesome`)
 
 ## Setup
 
@@ -19,20 +34,22 @@ npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173/`).
+Open the printed local URL (default `http://localhost:5173/`).
 
-## Production build
+## Production build (required to pass)
 
 ```bash
 cd task-1
 npm run build
 ```
 
-Requires **zero errors** — same command as CI.
+Must finish with **no errors** (`tsc -b && vite build`). Same command runs in CI.
 
 ### Base path (GitHub Pages)
 
-For a project site at `https://<user>.github.io/<repository>/`, the production `base` must be `/<repository>/`. In CI this is inferred from `GITHUB_REPOSITORY`. For a **local** production check with the same base:
+Project URL shape: `https://<user>.github.io/<repository>/`
+
+CI sets `GITHUB_REPOSITORY` so Vite `base` becomes `/<repo>/`. Local check:
 
 ```bash
 cd task-1
@@ -40,35 +57,60 @@ GITHUB_REPOSITORY=owner/repo-name npm run build
 npx vite preview
 ```
 
-Optional: set `VITE_BASE` in `.env.production` (see [`.env.example`](.env.example)).
+Optional: `VITE_BASE` in `.env.production` — see [`.env.example`](.env.example).
 
-## GitHub Pages
+## GitHub Actions
 
-1. Repository **Settings → Pages**: set **Source** to **GitHub Actions** (after the first successful workflow run).
-2. Push to `main`: [`.github/workflows/task-1-deploy-pages.yml`](../.github/workflows/task-1-deploy-pages.yml) builds `task-1` and deploys `task-1/dist`.
+| Workflow | Purpose |
+|----------|---------|
+| [`.github/workflows/task-1-ci.yml`](../.github/workflows/task-1-ci.yml) | `npm ci` + `npm run build` on changes under `task-1/`. |
+| [`.github/workflows/task-1-deploy-pages.yml`](../.github/workflows/task-1-deploy-pages.yml) | Build and deploy **`task-1/dist`** to **GitHub Pages** on push to **`main`** (and manual dispatch). |
 
-### Submission URL
+**Pages:** Repository **Settings → Pages → Source: GitHub Actions** (after workflows exist).
 
-After deployment, the public URL is shown in the workflow summary and under **Settings → Pages**. Paste the live link here when submitting:
+### Submission — live URL
 
-- **GitHub Pages:** _(add after first deploy)_
+Replace with your deployed site after the first successful deploy:
 
-## Local references (optional)
+- **GitHub Pages:** `https://<user>.github.io/<repository>/`
 
-Design references live under `references/` for side-by-side comparison. That folder is **gitignored** — keep copies locally; do not rely on them being in the remote repo.
+Also copy the URL from the **deploy workflow run** or **Settings → Pages**.
 
-## Verification checklist
+## Deliverables checklist (challenge)
 
-- [ ] `npm run build` succeeds with no errors in `task-1/`
-- [ ] Filters: year / quarter / category (desktop), team / country / region (mobile), plus search — all combinations behave sensibly
-- [ ] Podium shows top three of the **filtered** list; list below matches order (by total XP, descending)
-- [ ] Row expand/collapse shows activity table with XP summing consistently
-- [ ] Responsive: wide layout ≈ desktop reference; narrow layout ≈ mobile reference
-- [ ] No real corporate PII in repo or UI
-- [ ] [`report.md`](report.md) present and accurate
-- [ ] GitHub Pages URL loads after enabling Actions-based Pages
+- [x] Application **source code** in repo under [`task-1/`](.)
+- [x] **[`report.md`](report.md)** — approach, tooling, data replacement
+- [ ] **Working GitHub Pages link** — add URL above after deploy
+- [x] **No corporate PII** in shipped UI or committed source
+- [x] **`npm run build`** succeeds
 
-## Assumptions
+## Local references (optional, not in git)
 
-- “Sorting” in the task brief is satisfied by default **rank order by total XP (descending)** after filters; there is no separate column-sort UI unless added to match a visible control in references.
-- Avatar images are loaded from DiceBear’s public API; if blocked offline, images may fail to load without breaking the app shell.
+Design PNGs / snapshots may live in **`task-1/references/`** — that path is **gitignored** (see root [`.gitignore`](../.gitignore)). Keep copies locally for comparison; do not commit.
+
+## Verification checklist (pre-submit)
+
+- [ ] `npm run build` — zero errors
+- [ ] **All Years** shows **current year** in **Company Leader Board {year}**; choosing a year updates the title
+- [ ] Filters + search narrow the list; podium matches top 3 of filtered results
+- [ ] Expand/collapse and activity table behave correctly on desktop and mobile widths
+- [ ] Deployed Pages URL loads assets (no broken CSS/JS paths)
+- [ ] [`report.md`](report.md) matches your final process
+
+## Assumptions / limits
+
+- **Sorting:** Primary order is **total XP descending**; no extra column-sort UI unless required by a visible control in references.
+- **Avatars:** Loaded from **DiceBear** over HTTPS; blocked networks may show empty image slots without breaking the layout.
+- **DiceBear** and **Bootstrap CDN** are not used for CSS — Bootstrap is bundled; only DiceBear URLs are external for avatars.
+
+## Key paths
+
+| Path | Role |
+|------|------|
+| [`src/components/LeaderboardPage.tsx`](src/components/LeaderboardPage.tsx) | Page layout, filters state, title year |
+| [`src/components/FilterBar.tsx`](src/components/FilterBar.tsx) | Responsive filter UI |
+| [`src/components/Podium.tsx`](src/components/Podium.tsx) | Top 3 podium |
+| [`src/components/LeaderRow.tsx`](src/components/LeaderRow.tsx) | List row + expanded activity |
+| [`src/logic/filterLeaders.ts`](src/logic/filterLeaders.ts) | Filter + sort pipeline |
+| [`src/data/mockEmployees.ts`](src/data/mockEmployees.ts) | Synthetic dataset |
+| [`vite.config.ts`](vite.config.ts) | `base` for Pages |
