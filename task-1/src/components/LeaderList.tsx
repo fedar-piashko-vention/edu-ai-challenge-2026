@@ -13,7 +13,7 @@ export function LeaderList({
   onExpandedChange,
 }: LeaderListProps) {
   return (
-    <div className="lb-leader-list d-flex flex-column gap-2">
+    <div className="lb-leader-list">
       {leaders.map((emp, index) => (
         <LeaderRow
           key={emp.id}

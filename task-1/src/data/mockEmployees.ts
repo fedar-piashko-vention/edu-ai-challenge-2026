@@ -1,4 +1,10 @@
-import type { ActivityRow, Employee, Quarter, StatKind } from '../types';
+import type {
+  ActivityCategoryVariant,
+  ActivityRow,
+  Employee,
+  Quarter,
+  StatKind,
+} from '../types';
 
 const YEARS = [2024, 2025] as const;
 const QUARTERS: Quarter[] = ['Q1', 'Q2', 'Q3', 'Q4'];
@@ -46,15 +52,6 @@ const NAMES = [
   ['Echo', 'Demir'],
 ] as const;
 
-const COURSE_PREFIXES = [
-  'Intro to',
-  'Applied',
-  'Advanced',
-  'Workshop:',
-  'Lab:',
-  'Seminar:',
-];
-
 const TOPICS = [
   'Cloud foundations',
   'Secure coding',
@@ -66,6 +63,19 @@ const TOPICS = [
   'Testing strategy',
   'Agile facilitation',
   'Analytics overview',
+];
+
+const ACTIVITY_TAGS = ['REG', 'LAB', 'WRK', 'SEM', 'MTG'] as const;
+
+const ACTIVITY_CATEGORY_ROLL: {
+  label: string;
+  variant: ActivityCategoryVariant;
+}[] = [
+  { label: 'Public Speaking', variant: 'accent' },
+  { label: 'Education', variant: 'muted' },
+  { label: 'Community', variant: 'muted' },
+  { label: 'Workshop', variant: 'accent' },
+  { label: 'Mentoring', variant: 'accent' },
 ];
 
 function hashSeed(s: string): number {
@@ -93,10 +103,14 @@ function buildActivities(seed: string, totalXp: number): ActivityRow[] {
       : Math.max(1, Math.round((totalXp * w) / sumW));
     if (!isLast) allocated += xp;
     const topic = pick(TOPICS, seed, i);
-    const prefix = pick([...COURSE_PREFIXES], seed, i + 3);
+    const tag = pick([...ACTIVITY_TAGS], seed, i + 1);
+    const catRoll = pick(ACTIVITY_CATEGORY_ROLL, seed, i + 2);
+    const shortTopic =
+      topic.length > 28 ? `${topic.slice(0, 25)}…` : topic;
     return {
-      activity: `${prefix} ${topic}`,
-      timeSpent: `${20 + (hashSeed(seed + 't' + i) % 120)} min`,
+      activity: `[${tag}] ${shortTopic}`,
+      category: catRoll.label,
+      categoryVariant: catRoll.variant,
       date: `2025-${String(1 + (hashSeed(seed + 'd' + i) % 11)).padStart(2, '0')}-${String(1 + (hashSeed(seed + 'e' + i) % 27)).padStart(2, '0')}`,
       xpPoints: xp,
     };
@@ -104,10 +118,31 @@ function buildActivities(seed: string, totalXp: number): ActivityRow[] {
 }
 
 function statTriplet(seed: string, total: number): Record<StatKind, number> {
-  const a = 5 + (hashSeed(seed + 'a') % 40);
-  const b = 5 + (hashSeed(seed + 'b') % 35);
-  const c = Math.max(0, total - a - b);
-  return { education: a, project: b, community: c };
+  let education = 5 + (hashSeed(seed + 'a') % 40);
+  let project = 5 + (hashSeed(seed + 'b') % 35);
+  let community = Math.max(0, total - education - project);
+
+  /* Sometimes one bucket is zero so the row shows one or two icons like the reference. */
+  const layout = hashSeed(seed + 'z') % 5;
+  if (layout === 0) {
+    education = 0;
+    project = Math.max(1, Math.floor(total * 0.55));
+    community = total - project;
+  } else if (layout === 1) {
+    project = 0;
+    education = Math.max(1, Math.floor(total * 0.62));
+    community = total - education;
+  } else if (layout === 2) {
+    community = 0;
+    education = Math.max(1, Math.floor(total * 0.48));
+    project = total - education;
+  } else if (layout === 3) {
+    community = 0;
+    project = Math.max(1, Math.floor(total * 0.52));
+    education = total - project;
+  }
+
+  return { education, project, community };
 }
 
 export function buildMockEmployees(): Employee[] {

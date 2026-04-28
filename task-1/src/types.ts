@@ -2,9 +2,13 @@ export type Quarter = 'Q1' | 'Q2' | 'Q3' | 'Q4';
 
 export type StatKind = 'education' | 'project' | 'community';
 
+export type ActivityCategoryVariant = 'accent' | 'muted';
+
 export interface ActivityRow {
   activity: string;
-  timeSpent: string;
+  category: string;
+  categoryVariant: ActivityCategoryVariant;
+  /** ISO date YYYY-MM-DD */
   date: string;
   xpPoints: number;
 }
