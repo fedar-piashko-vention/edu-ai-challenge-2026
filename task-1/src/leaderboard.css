@@ -11,6 +11,7 @@
   --lb-text: #0f172a;
   /* Align with filter card + list row rhythm (refs: stands-desktop, stands-mobile) */
   --lb-section-gap: 2rem;
+  --lb-podium-to-list-gap: 2.75rem;
   --lb-podium-gap-desktop: 1.25rem;
   --lb-podium-gap-mobile: 1.75rem;
   background: var(--lb-page-bg);
@@ -184,7 +185,7 @@
 
 .lb-podium-section {
   margin-top: 0;
-  margin-bottom: var(--lb-section-gap);
+  margin-bottom: var(--lb-podium-to-list-gap);
 }
 
 .lb-podium--horizontal {
@@ -236,7 +237,6 @@
 
 .lb-podium-card--gold .lb-avatar--podium {
   border-color: var(--lb-rank1);
-  box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.35);
 }
 
 .lb-podium-card--silver .lb-avatar--podium {
@@ -322,12 +322,25 @@
   color: var(--lb-blue);
 }
 
+/* Flat solid stands: no gradient, no shadow; rounded top only, square flat bottom */
 .lb-podium-block {
   width: 100%;
-  border-radius: 12px 12px 10px 10px;
+  border-radius: 10px 10px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: none;
+  border: none;
+  background-image: none;
+}
+
+.lb-podium-block--gold {
+  background-color: var(--lb-podium-1);
+}
+
+.lb-podium-block--silver,
+.lb-podium-block--bronze {
+  background-color: #e8eef5;
 }
 
 /* Desktop: 1st stand tallest; 2nd/3rd equal and shorter */
@@ -337,15 +350,6 @@
 
 .lb-podium-slot--side .lb-podium-block {
   min-height: 82px;
-}
-
-.lb-podium-block--gold {
-  background: var(--lb-podium-1);
-}
-
-.lb-podium-block--silver,
-.lb-podium-block--bronze {
-  background: #e8eef5;
 }
 
 .lb-podium-block-num {
