@@ -57,7 +57,7 @@ export function LeaderboardPage() {
           </p>
         </header>
 
-        <div className="lb-filter-shell mb-4">
+        <div className="lb-filter-shell">
           <FilterBar
             filters={filters}
             onChange={setFilters}
@@ -72,7 +72,7 @@ export function LeaderboardPage() {
           />
         </div>
 
-        <section className="lb-podium-section mb-4" aria-label="Top three">
+        <section className="lb-podium-section" aria-label="Top three">
           <Podium leaders={podiumLeaders} />
         </section>
 

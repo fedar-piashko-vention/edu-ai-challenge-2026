@@ -36,7 +36,7 @@ function PodiumCard({
         <span className={`lb-rank-dot lb-rank-dot--${variant}`}>{rank}</span>
       </div>
       <div className="lb-podium-name">{emp.displayName}</div>
-      <div className="lb-podium-title text-muted small">{emp.titleLine}</div>
+      <div className="lb-podium-title">{emp.titleLine}</div>
       <div className={`lb-score-pill ${scoreClass}`}>
         <span className="lb-score-star" aria-hidden>
           ★
@@ -69,7 +69,7 @@ export function Podium({ leaders }: PodiumProps) {
   return (
     <>
       {/* Horizontal: 2 – 1 – 3 */}
-      <div className="lb-podium lb-podium--horizontal d-none d-md-flex align-items-end justify-content-center gap-3 gap-lg-4">
+      <div className="lb-podium lb-podium--horizontal d-none d-md-flex align-items-end justify-content-center">
         <div className="lb-podium-slot lb-podium-slot--side">
           {second ? (
             <PodiumCard emp={second} rank={2} variant="silver" />
@@ -90,7 +90,7 @@ export function Podium({ leaders }: PodiumProps) {
       </div>
 
       {/* Vertical: 1, 2, 3 */}
-      <div className="lb-podium lb-podium--vertical d-flex d-md-none flex-column align-items-center gap-4 py-2">
+      <div className="lb-podium lb-podium--vertical d-flex d-md-none flex-column align-items-center">
         <PodiumCard emp={first} rank={1} variant="gold" />
         {second ? (
           <PodiumCard emp={second} rank={2} variant="silver" />
