@@ -11,8 +11,9 @@
   /* Align with filter card + list row rhythm (refs: stands-desktop, stands-mobile) */
   --lb-section-gap: 2rem;
   --lb-podium-to-list-gap: 2.75rem;
-  --lb-podium-gap-desktop: 1.25rem;
+  --lb-podium-gap-desktop: 0.5rem;
   --lb-podium-gap-mobile: 1.75rem;
+  --lb-podium-row-max-width: 640px;
   background: var(--lb-outer-bg);
   color: var(--lb-text);
   font-family:
@@ -202,11 +203,13 @@
 .lb-podium-section {
   margin-top: 0;
   margin-bottom: var(--lb-podium-to-list-gap);
+  padding-inline: clamp(1.25rem, 6vw, 3rem);
 }
 
-.lb-podium--horizontal {
+.lb-podium.lb-podium--horizontal {
   width: 100%;
-  max-width: 100%;
+  max-width: min(100%, var(--lb-podium-row-max-width));
+  margin-inline: auto;
   gap: var(--lb-podium-gap-desktop) !important;
 }
 
