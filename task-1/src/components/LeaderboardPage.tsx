@@ -36,10 +36,20 @@ export function LeaderboardPage() {
 
   const podiumLeaders = useMemo(() => leaders.slice(0, 3), [leaders]);
 
+  const titleYear = useMemo(() => {
+    if (filters.year === 'all') {
+      return new Date().getFullYear();
+    }
+    const n = Number.parseInt(filters.year, 10);
+    return Number.isFinite(n) ? n : new Date().getFullYear();
+  }, [filters.year]);
+
   return (
     <div className="lb-root min-vh-100">
       <Container className="lb-page-container">
-        <h1 className="lb-page-title">Company Leader Board 2025</h1>
+        <h1 className="lb-page-title">
+          Company Leader Board {titleYear}
+        </h1>
 
         <div className="lb-inner-shell">
           <header className="lb-header lb-header--inner">
