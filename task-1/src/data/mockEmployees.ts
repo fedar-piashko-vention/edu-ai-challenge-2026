@@ -66,14 +66,12 @@ const TOPICS = [
 
 const ACTIVITY_TAGS = ['REG', 'LAB', 'WRK', 'SEM', 'MTG'] as const;
 
-const ACTIVITY_CATEGORY_ROLL: {
-  label: string;
-}[] = [
-  { label: 'Public Speaking', variant: 'accent' },
-  { label: 'Education', variant: 'muted' },
-  { label: 'Community', variant: 'muted' },
-  { label: 'Workshop', variant: 'accent' },
-  { label: 'Mentoring', variant: 'accent' },
+const ACTIVITY_CATEGORY_ROLL: { label: string }[] = [
+  { label: 'Public Speaking' },
+  { label: 'Education' },
+  { label: 'Community' },
+  { label: 'Workshop' },
+  { label: 'Mentoring' },
 ];
 
 function hashSeed(s: string): number {
