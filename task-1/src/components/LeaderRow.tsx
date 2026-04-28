@@ -116,8 +116,8 @@ export function LeaderRow({ employee, rank, expanded, onToggle }: LeaderRowProps
 
       <Collapse in={expanded}>
         <div id={collapseId}>
+          <div className="lb-expanded-divider" />
           <div className="lb-row-expanded">
-            <div className="lb-expanded-divider" />
             <div className="lb-recent-activity-heading">Recent activity</div>
             <div className="table-responsive">
               <table className="table lb-activity-table mb-0">
@@ -137,7 +137,7 @@ export function LeaderRow({ employee, rank, expanded, onToggle }: LeaderRowProps
                       <td className="lb-activity-title">{row.activity}</td>
                       <td>
                         <span
-                          className={`lb-cat-badge lb-cat-badge--${row.categoryVariant}`}
+                          className={`lb-cat-badge lb-cat-badge--muted`}
                         >
                           {row.category}
                         </span>

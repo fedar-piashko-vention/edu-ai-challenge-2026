@@ -1,5 +1,4 @@
 import type {
-  ActivityCategoryVariant,
   ActivityRow,
   Employee,
   Quarter,
@@ -69,7 +68,6 @@ const ACTIVITY_TAGS = ['REG', 'LAB', 'WRK', 'SEM', 'MTG'] as const;
 
 const ACTIVITY_CATEGORY_ROLL: {
   label: string;
-  variant: ActivityCategoryVariant;
 }[] = [
   { label: 'Public Speaking', variant: 'accent' },
   { label: 'Education', variant: 'muted' },
@@ -110,7 +108,6 @@ function buildActivities(seed: string, totalXp: number): ActivityRow[] {
     return {
       activity: `[${tag}] ${shortTopic}`,
       category: catRoll.label,
-      categoryVariant: catRoll.variant,
       date: `2025-${String(1 + (hashSeed(seed + 'd' + i) % 11)).padStart(2, '0')}-${String(1 + (hashSeed(seed + 'e' + i) % 27)).padStart(2, '0')}`,
       xpPoints: xp,
     };

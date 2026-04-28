@@ -13,7 +13,7 @@
   --lb-podium-to-list-gap: 2.75rem;
   --lb-podium-gap-desktop: 0.5rem;
   --lb-podium-gap-mobile: 1.75rem;
-  --lb-podium-row-max-width: 640px;
+  --lb-podium-row-max-width: 840px;
   background: var(--lb-outer-bg);
   color: var(--lb-text);
   font-family:
@@ -364,15 +364,26 @@
 
 /* Desktop: 1st stand tallest; 2nd/3rd equal and shorter */
 .lb-podium-slot--center .lb-podium-block {
-  min-height: 118px;
+  min-height: 160px;
+  margin: 0 2rem 0 2rem;
 }
 
 .lb-podium-slot--side .lb-podium-block {
-  min-height: 82px;
+  min-height: 112px;
+}
+
+.lb-podium-block--bronze {
+  min-height: 96px !important;
+  max-height: 96px;
+}
+
+.lb-podium-block--silver,
+.lb-podium-block--bronze {
+  font-size: 96px !important;
 }
 
 .lb-podium-block-num {
-  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-size: 112px;
   font-weight: 800;
   color: rgba(15, 23, 42, 0.07);
   line-height: 1;
@@ -380,7 +391,7 @@
 
 .lb-podium-placeholder {
   width: min(100%, 200px);
-  height: 160px;
+  height: 180px;
 }
 
 /* Mobile stack: 1 > 2 > 3; decreasing stand height; tighter avatar scale */
@@ -609,20 +620,20 @@
 
 /* Expanded detail */
 .lb-row-expanded {
-  padding: 0 1.5rem 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
   background: #f8fafc;
 }
 
 @media (min-width: 768px) {
   .lb-row-expanded {
-    padding: 0 1.75rem 1.75rem;
+    padding: 1rem 1.75rem 1.75rem;
   }
 }
 
 .lb-expanded-divider {
   height: 1px;
   background: #e5e7eb;
-  margin: 0 0 1rem;
+  margin: 1rem 0 0 0;
 }
 
 .lb-recent-activity-heading {
@@ -650,8 +661,8 @@
 }
 
 .lb-activity-table tbody td {
-  border-bottom: 1px solid #f1f5f9;
-  padding: 0.75rem 0.85rem 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 8px;
   vertical-align: middle;
 }
 
@@ -660,18 +671,22 @@
 }
 
 .lb-activity-title {
-  font-weight: 700;
-  color: #334155;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: #1e293b !important;
   max-width: 28rem;
 }
 
 .lb-activity-date {
-  color: #64748b;
+  color: #64748b !important;
+  font-weight: 200;
+  font-size: 0.8125rem;
 }
 
 .lb-activity-points {
-  font-weight: 700;
-  color: var(--lb-blue);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--lb-blue) !important;
 }
 
 .lb-cat-badge {
