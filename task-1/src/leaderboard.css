@@ -1,8 +1,8 @@
 /* Design tokens */
 .lb-root {
-  --lb-blue: #0078d4;
+  --lb-blue: #0ea5e9;
   --lb-outer-bg: #e8eaed;
-  --lb-inner-bg: #ffffff;
+  --lb-inner-bg: #f8fafc;
   --lb-gold: #f5a623;
   --lb-gold-bg: #fff8e6;
   --lb-podium-1: #fff4c2;
@@ -44,7 +44,7 @@
   font-weight: 700;
   color: #111827;
   letter-spacing: -0.02em;
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
   line-height: 1.2;
 }
 
@@ -422,13 +422,13 @@
 
 .lb-leader-card {
   border-radius: 12px !important;
-  border-color: #e5e7eb !important;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
   transition:
     box-shadow 0.15s ease,
     border-color 0.15s ease;
   overflow: hidden;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
 }
 
 .lb-leader-card--open {
@@ -505,19 +505,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.4rem;
   min-width: 2rem;
 }
 
 .lb-stat-icon-top {
-  font-size: 1.15rem;
+  font-size: 0.9rem;
   color: var(--lb-blue);
 }
 
 .lb-stat-num {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #111827;
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: #475569;
   line-height: 1;
 }
 
@@ -553,16 +553,16 @@
 }
 
 .lb-total-star {
-  font-size: 1rem;
+  font-size: 1.8rem;
   color: var(--lb-blue);
   line-height: 1;
 }
 
 .lb-total-value {
-  font-size: 1.625rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: var(--lb-blue);
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .lb-expand-btn {
@@ -610,6 +610,7 @@
 /* Expanded detail */
 .lb-row-expanded {
   padding: 0 1.5rem 1.5rem;
+  background: #f8fafc;
 }
 
 @media (min-width: 768px) {
