@@ -50,14 +50,14 @@ export function LeaderboardPage() {
       </div>
 
       <Container className="lb-container py-4 py-md-4">
-        <header className="lb-header mb-4 d-none d-md-block">
-          <h1 className="lb-title fw-bold mb-1">Leaderboard</h1>
-          <p className="text-muted mb-0">
-            Top performers based on contributions and activity.
+        <header className="lb-header lb-header--desktop d-none d-md-block">
+          <h1 className="lb-title">Leaderboard</h1>
+          <p className="lb-subtitle">
+            Top performers based on contributions and activity
           </p>
         </header>
 
-        <div className="lb-filter-shell card border shadow-sm mb-4 p-3">
+        <div className="lb-filter-shell mb-4">
           <FilterBar
             filters={filters}
             onChange={setFilters}
