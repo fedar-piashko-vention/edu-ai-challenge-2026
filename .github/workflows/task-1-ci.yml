@@ -1,0 +1,30 @@
+name: Task 1 — CI build
+
+on:
+  pull_request:
+    paths:
+      - 'task-1/**'
+      - '.github/workflows/task-1-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'task-1/**'
+      - '.github/workflows/task-1-ci.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: task-1/package-lock.json
+
+      - name: Install and build
+        working-directory: task-1
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: npm ci && npm run build

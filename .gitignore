@@ -141,3 +141,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Task 1 — local references only (do not commit)
+task-1/references/
+task-1/task-1-snapshot.txt
