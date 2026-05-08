@@ -1,6 +1,6 @@
 # Lovable — full standalone prompts (FSP)
 
-Paste **one file at a time** into Lovable (entire file contents = one message). Order matters.
+Paste one file at a time into Lovable (entire file = one message). Order matters. Prompt bodies are plain text (minimal Markdown) to save tokens; Lovable treats them as instructions, not rendered docs.
 
 | Order | File | Focus |
 |------:|------|--------|

@@ -156,7 +156,7 @@ Each **FULL STANDALONE PROMPT** contains:
 
 ## Part 4 — FULL STANDALONE PROMPTS (Lovable paste payloads)
 
-Prompt bodies live in **`task-2/prompts/`** so you copy **one whole file per Lovable message** (do not paste this playbook into Lovable).
+Prompt bodies live in **`task-2/prompts/`** so you copy **one whole file per Lovable message** (do not paste this playbook into Lovable). Those files use **plain, dense text** (almost no Markdown decoration) so pasted tokens stay smaller; Lovable does not need headings/bold for comprehension.
 
 **Index:** [`prompts/README.md`](prompts/README.md)
 
