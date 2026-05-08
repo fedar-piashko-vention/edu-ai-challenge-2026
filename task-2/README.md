@@ -2,7 +2,7 @@
 
 ## Objective
 
-Add the official Task 2 objective here when announced.
+Task 2 — build and deploy the event platform via **Lovable** (see [`LOVABLE_PROMPT_PLAYBOOK.md`](LOVABLE_PROMPT_PLAYBOOK.md)). **Lovable paste payloads:** [`prompts/README.md`](prompts/README.md).
 
 ## Deliverables Checklist
 
