@@ -33,3 +33,5 @@ Use after FSP-1–6 or when aligning the cloned Lovable app to FSP gaps. Paste o
 | F | [`fix-f-report-anon-or-signin.md`](fix-f-report-anon-or-signin.md) | Report flow for anonymous vs sign-in gate |
 | G | [`fix-g-dashboard-terminology.md`](fix-g-dashboard-terminology.md) | Dashboard vs manage copy / upcoming-past clarity |
 | H | [`fix-h-rerun-fsp06-qa.md`](fix-h-rerun-fsp06-qa.md) | Re-run final QA: combine with `fsp-06-final-qa-handoff.md` in one message |
+| I | [`fix-i-ready-gate-host-routes.md`](fix-i-ready-gate-host-routes.md) | Defer `load()` / event fetch until `useRequireHostRole` `ready` (checker race hardening) |
+| J | [`fix-j-security-hardening.md`](fix-j-security-hardening.md) | Hosts email leak, storage write scope (covers/logos), notifications realtime surface |
