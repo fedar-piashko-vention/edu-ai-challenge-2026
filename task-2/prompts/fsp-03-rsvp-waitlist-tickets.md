@@ -1,6 +1,6 @@
 FULL STANDALONE PROMPT — paste entire file into Lovable as one message.
 
-This is prompt 3 of 5. FSP-3 — RSVP & tickets: RSVP + FIFO waitlist + promotions + tickets + QR + calendar + My Tickets + cancel + notifications
+This is prompt 3 of 6. FSP-3 — RSVP & tickets: RSVP + FIFO waitlist + promotions + tickets + QR + calendar + My Tickets + cancel + notifications
 
 You are implementing on this Lovable project. Assume no chat history. Follow only this message.
 

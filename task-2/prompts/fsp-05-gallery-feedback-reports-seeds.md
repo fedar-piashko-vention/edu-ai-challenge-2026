@@ -1,6 +1,4 @@
-FULL STANDALONE PROMPT — paste entire file into Lovable as one message.
-
-This is prompt 5 of 5. FSP-5 — Community & launch: Gallery + post-event feedback + reporting queue + seeds + hardening
+This is prompt 5 of 6. FSP-5 — Community & launch: Gallery + post-event feedback + reporting queue + seeds + hardening
 
 You are implementing on this Lovable project. Assume no chat history. Follow only this message.
 

@@ -8,7 +8,7 @@ Lovable chat sessions **do not reliably retain prior prompts**. Treat **every** 
 
 **How to use**
 
-1. Pick **FSP‑1 … FSP‑5** in order (recommended). Each assumes you keep working in the **same** Lovable project; the prompt tells Lovable to **inspect what exists** and **extend or fix** without deleting unrelated features.
+1. Pick **FSP‑1 … FSP‑6** in order (**FSP‑6** = final QA / regression only, after features). Each assumes you keep working in the **same** Lovable project; prompts tell Lovable to **inspect what exists** and **extend or fix** without deleting unrelated features.
 2. Paste **one FSP per message** (do not split an FSP).
 3. After each FSP, run its **Acceptance checklist** before moving on.
 
@@ -134,6 +134,7 @@ Compensation references **efficient prompting**. Each FSP repeats a compact embe
 | R15 | Gallery + Host approval | FSP‑5 |
 | R16 | Report + queue + hide | FSP‑5 |
 | R17 | Deploy seeds (1 host, 1 upcoming, 1 past) + polish | FSP‑5 |
+| R18 | Full FSP regression QA + fixes + handoff summary | FSP‑6 |
 
 **Traceability**
 
@@ -167,8 +168,11 @@ Prompt bodies live in **`task-2/prompts/`** so you copy **one whole file per Lov
 | FSP‑3 | [`prompts/fsp-03-rsvp-waitlist-tickets.md`](prompts/fsp-03-rsvp-waitlist-tickets.md) |
 | FSP‑4 | [`prompts/fsp-04-roles-dashboard-csv-checkin.md`](prompts/fsp-04-roles-dashboard-csv-checkin.md) |
 | FSP‑5 | [`prompts/fsp-05-gallery-feedback-reports-seeds.md`](prompts/fsp-05-gallery-feedback-reports-seeds.md) |
+| FSP‑6 | [`prompts/fsp-06-final-qa-handoff.md`](prompts/fsp-06-final-qa-handoff.md) |
 
 **Canonical DDL snapshot (edit once, sync copies inside each `fsp-*.md`):** [`prompts/_canonical-schema.md`](prompts/_canonical-schema.md)
+
+**Post-audit remediation (e.g. Gather / community-events-hub):** [`prompts/README.md`](prompts/README.md) — section *Remediation prompts* (`fix-a` … `fix-h`).
 
 **Human instructions**
 

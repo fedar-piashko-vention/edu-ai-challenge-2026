@@ -1,6 +1,6 @@
 FULL STANDALONE PROMPT — paste entire file into Lovable as one message.
 
-This is prompt 4 of 5. FSP-4 — Roles & operations: Roles & invites + Host dashboard + CSV exports + My Events + Checker check-in
+This is prompt 4 of 6. FSP-4 — Roles & operations: Roles & invites + Host dashboard + CSV exports + My Events + Checker check-in
 
 You are implementing on this Lovable project. Assume no chat history. Follow only this message.
 

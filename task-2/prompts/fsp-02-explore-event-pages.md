@@ -1,6 +1,6 @@
 FULL STANDALONE PROMPT — paste entire file into Lovable as one message.
 
-This is prompt 2 of 5. FSP-2 — Explore + Event pages: Explore + Event page UX + auth return URL + social previews
+This is prompt 2 of 6. FSP-2 — Explore + Event pages: Explore + Event page UX + auth return URL + social previews
 
 You are implementing on this Lovable project. Assume no chat history. Follow only this message.
 

@@ -1,8 +1,8 @@
 FULL STANDALONE PROMPT — paste entire file into Lovable as one message.
 
-Five self-contained prompts total; extend this repo; do not delete unrelated features.
+Six self-contained prompts total (FSP-6 is final QA only); extend this repo; do not delete unrelated features.
 
-This is prompt 1 of 5. FSP-1 — Foundation: schema + RLS + Host onboarding + Event editor
+This is prompt 1 of 6. FSP-1 — Foundation: schema + RLS + Host onboarding + Event editor
 
 You are implementing a deployed web app from scratch or on top of whatever exists in this Lovable project. Assume no chat history. Follow only this message.
 
