@@ -35,3 +35,9 @@ Use after FSP-1–6 or when aligning the cloned Lovable app to FSP gaps. Paste o
 | H | [`fix-h-rerun-fsp06-qa.md`](fix-h-rerun-fsp06-qa.md) | Re-run final QA: combine with `fsp-06-final-qa-handoff.md` in one message |
 | I | [`fix-i-ready-gate-host-routes.md`](fix-i-ready-gate-host-routes.md) | Defer `load()` / event fetch until `useRequireHostRole` `ready` (checker race hardening) |
 | J | [`fix-j-security-hardening.md`](fix-j-security-hardening.md) | Hosts email leak, storage write scope (covers/logos), notifications realtime surface |
+| K | [`fix-k-is-host-member-grant.md`](fix-k-is-host-member-grant.md) | Host/event create 403: `permission denied for function is_host_member` (RLS needs EXECUTE grant) |
+| L | [`fix-l-host-logos-path-and-onboarding.md`](fix-l-host-logos-path-and-onboarding.md) | Host logo upload RLS: path must use `host.id`, reorder onboarding if policies are host-scoped |
+| M | [`fix-m-storage-rls-uploads.md`](fix-m-storage-rls-uploads.md) | Storage upload still 403: `split_part` policies, restore public SELECT on buckets, verify triggers/membership |
+| N | [`fix-n-events-select-anon-rls.md`](fix-n-events-select-anon-rls.md) | Explore/search as anon **42501**: **`events_select_members`** must be **`TO authenticated`** only (do not **`GRANT EXECUTE`** `is_host_member` to anon) |
+| O | [`fix-o-public-media-urls-and-anon-storage-read.md`](fix-o-public-media-urls-and-anon-storage-read.md) | Public media: null **`cover_image_url`/`logo_url`** (seeds, saves) + anon **`<img>`** Storage **`SELECT`** on **`host-logos`/`event-covers`** (merged former **fix-o** + **fix-p**) |
+| Q | [`fix-q-login-signup-session-redirect.md`](fix-q-login-signup-session-redirect.md) | Sign-up UX: branch on **`signUp` `data.session`** — redirect when active; email toast + Sign-in tab only if confirmation required |
