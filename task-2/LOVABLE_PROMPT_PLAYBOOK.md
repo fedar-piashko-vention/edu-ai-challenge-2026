@@ -172,7 +172,7 @@ Prompt bodies live in **`task-2/prompts/`** so you copy **one whole file per Lov
 
 **Canonical DDL snapshot (edit once, sync copies inside each `fsp-*.md`):** [`prompts/_canonical-schema.md`](prompts/_canonical-schema.md)
 
-**Post-audit remediation (e.g. Gather / community-events-hub):** [`prompts/README.md`](prompts/README.md) — section *Remediation prompts* (`fix-a` … `fix-q`). **fix-o** merges former **fix-o** (URLs/seeds) + **fix-p** (anon Storage read); **fix-p** removed; **fix-n** is standalone (anon Explore RLS only).
+**Post-audit remediation (e.g. Gather / community-events-hub):** [`prompts/README.md`](prompts/README.md) — section *Remediation prompts* (`fix-a` … `fix-r`). **fix-o** merges former **fix-o** (URLs/seeds) + **fix-p** (anon Storage read); **fix-p** removed; **fix-n** is standalone (anon Explore RLS only).
 
 **Human instructions**
 
